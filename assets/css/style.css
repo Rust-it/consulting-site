@@ -516,6 +516,12 @@ main.wrap {
   .talk-date,
   .channels dt { padding-top: 0; }
 
+  /* Single column collapses label and value into one flow — separate the
+     pairs so each label reads as belonging to the value below it. */
+  .channels { gap: 0; }
+  .channels dd { margin-top: var(--space-1); }
+  .channels dd + dt { margin-top: var(--space-5); }
+
   .section { margin-top: var(--space-8); }
 }
 
