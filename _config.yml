@@ -1,0 +1,47 @@
+
+# ---------------------------------------------------------------------------
+# Site settings. Edit these values in the GitHub web editor; the site rebuilds
+# automatically after each commit to `main`.
+# ---------------------------------------------------------------------------
+
+title: "Halvorsen Advisory"
+tagline: "Strategy and corporate development counsel"
+description: >-
+  Independent strategy advisory for boards and executive teams facing
+  portfolio decisions, market entry, and post-merger integration.
+
+author: "Ingrid Halvorsen"
+email: "ingrid@halvorsenadvisory.com"
+linkedin: "https://www.linkedin.com/in/example-profile"
+location: "Copenhagen and London"
+
+# ---------------------------------------------------------------------------
+# Build settings — leave these alone unless you know what they do.
+# `url` and `baseurl` are set by the deploy; for a project page the baseurl
+# must be "/<repository-name>".
+# ---------------------------------------------------------------------------
+
+url: "https://rust-it.github.io"
+baseurl: "/consulting-site"
+
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"

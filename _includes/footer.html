@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+
+    <p class="footer-brand">{{ site.title }}</p>
+
+    <p class="footer-meta">
+      {{ site.location }} &middot;
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      {%- if site.linkedin %} &middot;
+      <a href="{{ site.linkedin }}" rel="noopener">LinkedIn</a>
+      {%- endif %}
+    </p>
+
+    <p class="footer-legal">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+
+  </div>
+</footer>

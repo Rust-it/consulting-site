@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  Every block below is optional and driven by the page's front matter.
+  Leave a key out and its section simply does not render.
+
+    title:    page heading
+    lede:     one large paragraph under the heading
+    content:  the Markdown body of the file
+    areas:    list of {name, summary}          — practice areas
+    cases:    list of {client, sector, mandate, work, outcome}
+    talks:    list of {title, event, venue, date, note}
+    channels: list of {label, value, href}
+{%- endcomment -%}
+
+<article class="page{% if page.url == '/' %} page-home{% endif %}">
+
+  <header class="page-head">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {%- if page.lede %}
+    <p class="lede">{{ page.lede }}</p>
+    {%- endif %}
+  </header>
+
+  {%- if content != "" %}
+  <div class="prose">
+    {{ content }}
+  </div>
+  {%- endif %}
+
+  {%- if page.areas %}
+  <section class="section">
+    <h2 class="section-title">{{ page.areas_title | default: "Practice areas" }}</h2>
+    <div class="areas">
+      {%- for area in page.areas %}
+      <div class="area">
+        <h3 class="area-name">{{ area.name }}</h3>
+        <p class="area-summary">{{ area.summary }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- if page.cases %}
+  <section class="section">
+    <h2 class="section-title">{{ page.cases_title | default: "Selected engagements" }}</h2>
+    <div class="cases">
+      {%- for case in page.cases %}
+      <article class="case">
+        <p class="case-meta">{{ case.sector }}</p>
+        <h3 class="case-client">{{ case.client }}</h3>
+        <dl class="case-body">
+          <dt>Mandate</dt>
+          <dd>{{ case.mandate }}</dd>
+          <dt>Work</dt>
+          <dd>{{ case.work }}</dd>
+          <dt>Outcome</dt>
+          <dd>{{ case.outcome }}</dd>
+        </dl>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- if page.talks %}
+  <section class="section">
+    <h2 class="section-title">{{ page.talks_title | default: "Talks" }}</h2>
+    <ol class="talks">
+      {%- for talk in page.talks %}
+      <li class="talk">
+        <p class="talk-date">{{ talk.date }}</p>
+        <div class="talk-body">
+          <h3 class="talk-title">{{ talk.title }}</h3>
+          <p class="talk-venue">{{ talk.event }}{% if talk.venue %} &middot; {{ talk.venue }}{% endif %}</p>
+          {%- if talk.note %}
+          <p class="talk-note">{{ talk.note }}</p>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+  {%- endif %}
+
+  {%- if page.channels %}
+  <section class="section">
+    <h2 class="section-title">{{ page.channels_title | default: "Direct" }}</h2>
+    <dl class="channels">
+      {%- for channel in page.channels %}
+      <dt>{{ channel.label }}</dt>
+      <dd>
+        {%- if channel.href -%}
+        <a href="{{ channel.href }}">{{ channel.value }}</a>
+        {%- else -%}
+        {{ channel.value }}
+        {%- endif -%}
+      </dd>
+      {%- endfor %}
+    </dl>
+  </section>
+  {%- endif %}
+
+</article>

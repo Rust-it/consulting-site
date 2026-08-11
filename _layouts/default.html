@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- if page.url == "/" -%}
+    {%- assign page_title = site.title -%}
+  {%- else -%}
+    {%- assign page_title = page.title | append: " — " | append: site.title -%}
+  {%- endif -%}
+  {%- assign page_description = page.description | default: site.description | strip_newlines | strip -%}
+
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {% include header.html %}
+
+  <main id="main" class="wrap">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+</body>
+</html>
