@@ -465,12 +465,21 @@ main.wrap {
 
 .footer-meta a:hover { color: var(--color-accent); }
 
+.footer-disclaimer {
+  margin-top: var(--space-5);
+  font-size: var(--size-xs);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
 .footer-legal {
   margin-top: var(--space-5);
   font-size: var(--size-xs);
   letter-spacing: 0.02em;
   color: var(--color-text-faint);
 }
+
+.footer-disclaimer + .footer-legal { margin-top: var(--space-1); }
 
 /* --- Narrow viewports ----------------------------------------------------- */
 

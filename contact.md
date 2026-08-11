@@ -18,7 +18,7 @@ channels:
 
   - label: "LinkedIn"
     value: "Ingrid Halvorsen"
-    href: "https://www.linkedin.com/in/example-profile"
+    href: "#"
 
   - label: "Based in"
     value: "Copenhagen and London"

@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  {%- comment -%}
+    Demonstration build: kept out of search indexes. Remove this tag when the
+    placeholder content is replaced and the site is meant to be found.
+  {%- endcomment -%}
+  <meta name="robots" content="noindex">
+
   {%- if page.url == "/" -%}
     {%- assign page_title = site.title -%}
   {%- else -%}
